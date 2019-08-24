@@ -1,0 +1,6 @@
+{
+    "sketch": "prueba_cw_S_METRterminando.ino",
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328",
+    "port": "COM3"
+}
