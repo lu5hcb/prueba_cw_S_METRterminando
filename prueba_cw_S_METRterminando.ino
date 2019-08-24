@@ -1,11 +1,10 @@
-#include <rotary.h>
-#include <Wire.h>
+
 
 //* VFO PARA CAHUANE FR 300 CON KEYER Y MODO SSB Y CW          
                                     // Inclusion de librerias
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
-
+#include <rotary.h>
 
 
 
