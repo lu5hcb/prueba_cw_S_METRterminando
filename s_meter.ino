@@ -10,7 +10,7 @@ void s_meter(void){
   }
   meter_counter = meter_counter/100 + 1;
   
-  lcd.setCursor(13,1);
+  lcd.setCursor(13,2);
      if(SMeter >= 0 && SMeter <=400) lcd.print("S-1");
      if(SMeter >= 401 && SMeter <= 500) lcd.print("S-2 ");
      if(SMeter >= 501 && SMeter <= 600) lcd.print("S-4 ");

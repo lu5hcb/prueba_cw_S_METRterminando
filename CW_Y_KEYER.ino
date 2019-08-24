@@ -2,7 +2,7 @@ void cww(){
   if (fw == 0 && cw == LOW){
    GoIF = 0;
    iffreq=1999398;
-   lcd.setCursor(0, 1);
+   lcd.setCursor(0, 3);
    lcd.print("RCW");
    fw=1;}
            lcd.setCursor(12, 0);
@@ -15,7 +15,7 @@ void cww(){
   if(!digitalRead(P_DOT))                    // If the dot lever is presssed..
   {
     digitalWrite(RELAY, HIGH);
-       lcd.setCursor(0, 1);  
+       lcd.setCursor(0, 3);  
        lcd.print("TCW"); 
             GoIF = 0;
             iffreq=iffreqtx;
@@ -28,7 +28,7 @@ void cww(){
   if(!digitalRead(P_DASH))                   // If the dash lever is pressed...
   {   
     digitalWrite(RELAY, HIGH); 
-      lcd.setCursor(0, 1);  
+      lcd.setCursor(0, 3);  
       lcd.print("TCW"); 
            GoIF = 0;
            iffreq=iffreqtx;
@@ -47,7 +47,7 @@ void cww(){
 if ( activado == 1 && (actual >final) ) {   // Si fue activado=1 y el tiempo actual es mayor que el final....
     
      digitalWrite(RELAY, LOW);  
-    lcd.setCursor(0, 1);
+    lcd.setCursor(0, 3);
     lcd.print("RCW");
           GoIF = 0;                         // 0 resta 1 suma
           iffreq=iffreqrx_cw;                  // frecuencia de if rx 

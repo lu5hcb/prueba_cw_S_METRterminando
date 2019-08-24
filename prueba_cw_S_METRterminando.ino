@@ -118,7 +118,7 @@ void setup() {
   delay (500);
    lcd.setCursor(1, 0);
    lcd.print("              "); 
-    lcd.setCursor(411, 4);
+    lcd.setCursor(4, 4);
    lcd.print("    LU5HCB DDS    ");
   lcd.setCursor(hertzPosition, 1);
   lcd.print(hertz);
@@ -175,7 +175,7 @@ void loop(){
       GoIF = 0;// 0 resta 1 suma
       iffreq=(iffreqrx_ssb-(clarificadori));                     // frecuencia de if rx SSB
       fw=0;
-          lcd.setCursor(13, 0);
+          lcd.setCursor(17, 0);
           lcd.print("SSB ");
 }
   sendFrequency(rx);
