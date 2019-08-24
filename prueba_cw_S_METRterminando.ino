@@ -1,9 +1,12 @@
 #include <rotary.h>
-
+#include <Wire.h>
 
 //* VFO PARA CAHUANE FR 300 CON KEYER Y MODO SSB Y CW          
                                     // Inclusion de librerias
+#include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,8 +17,8 @@
 #define SMETER       A1              // conectar potenciometro para velocidad del keyer 0v a 5v
 #define tx           13              //ENTRADA DE SEÑAL CUANDO EL EQUIPO ESTA EN TX (BAJA)
 #define P_SPEED      A6              //ENTRADA DE SEÑAL DE 0V A 5V PARA MEDIR LAS SEÑALES S
-// PIN               A4              //LCD I2C              
-// PIN               A5              //LCD I2C              
+// PIN               A4              //LCD I2C sdl             
+// PIN               A5              //LCD I2C   scl           
 #define  rit         A2             // boton rit carificador
 
 // PIN                2              // PIN DEL ENCODER             
@@ -34,7 +37,7 @@
 #define banda1        A2 
 
 Rotary r = Rotary(2, 3); // pins del rotary encoder
-LiquidCrystal_I2C lcd(0x27,16,2);                        
+LiquidCrystal_I2C lcd(0x27,20,4);                        
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,7 +92,7 @@ void setup() {
    pinMode(P_DOT, INPUT_PULLUP);       //entrada punto cw low 
    pinMode(P_DASH, INPUT_PULLUP);      //entrada raya cw low
    digitalWrite(P_CW, LOW);            //inicia balanceado
-   lcd.begin(16, 2);                   //inicia lcd
+  // lcd.begin(20, 4);                   //inicia lcd
    PCICR |= (1 << PCIE2);
    PCMSK2 |= (1 << PCINT18) | (1 << PCINT19);
    sei();
@@ -98,7 +101,10 @@ void setup() {
    pinMode(DATA, OUTPUT);             //dds pines
    pinMode(RESET, OUTPUT);             //dds pines
    pinMode(RELAY, OUTPUT);             //relay de ppt tx
-
+  lcd.init();                      // initialize the lcd 
+  lcd.init();
+  // Print a message to the LCD.
+  lcd.backlight();
   
   pulseHigh(RESET);                    // este pulso habilita el modo serie del AD9850
   pulseHigh(W_CLK);                    // este pulso habilita el modo serie del AD9850
@@ -113,8 +119,8 @@ void setup() {
   delay (500);
    lcd.setCursor(1, 0);
    lcd.print("              "); 
-    lcd.setCursor(1, 0);
-   lcd.print("LU5HCB DDS    ");
+    lcd.setCursor(411, 4);
+   lcd.print("    LU5HCB DDS    ");
   lcd.setCursor(hertzPosition, 1);
   lcd.print(hertz);
    
