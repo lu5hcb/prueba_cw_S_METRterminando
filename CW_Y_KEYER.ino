@@ -10,7 +10,7 @@ void cww(){
 
   
   
-  speedw = analogRead(P_SPEED)/2;            // Read the keying speed from potmeter
+  speedw = analogRead(P_SPEED)/2;            // lee la velocidad en la entrada analoga P_SPEED
  
   if(!digitalRead(P_DOT))                    // If the dot lever is presssed..
   {
@@ -22,12 +22,6 @@ void cww(){
     keyAndBeep(speedw);                      // ... send a dot at the given speed
     delay(speedw); 
        power_meter();   
-        inicio = millis();
-        final = inicio + 800;                //     and wait before sending next
-  }
-  if(!digitalRead(P_DASH))                   // If the dash lever is pressed...
-  {   
-    digitalWrite(RELAY, HIGH); 
       lcd.setCursor(0, 3);  
       lcd.print("TCW"); 
            GoIF = 0;
