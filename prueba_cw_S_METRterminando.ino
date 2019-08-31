@@ -18,14 +18,14 @@
 #define P_SPEED      A3              //ENTRADA DE SEÑAL DE 0V A 5V PARA MEDIR LAS SEÑALES S
 // PIN               A4              //LCD I2C sdl             
 // PIN               A5              //LCD I2C   scl           
-#define  rit         A2             // boton rit carificador
+#define  rit         A2              // boton rit carificador
 
 // PIN                2              // PIN DEL ENCODER             
 // PIN                3              // PIN DEL ENCODER
 #define RELAY         4              // conectar para desbalancear el modulador balanceado  
-#define CAM_MODO     A1              // cambia de modo ssb a cw
-#define P_DASH        6             // conectar a la raya del keyer en low
-#define P_DOT         7             // conectar a punto del keyer en low                                                                    //definicion DE PINES PARA EL DDS
+#define CAM_MODO      5              // cambia de modo ssb a cw
+#define P_DASH        6              // conectar a la raya del keyer en low
+#define P_DOT         7              // conectar a punto del keyer en low                                                                    //definicion DE PINES PARA EL DDS
 #define W_CLK         8              // Pin 8 - (CLK)AD9850
 #define FQ_UD         9              // Pin 9 - (FQ)AD9850
 #define DATA         10              // Pin 10 - (DATA)AD9850
@@ -33,7 +33,7 @@
 #define pulseHigh(pin) {digitalWrite(pin, HIGH); digitalWrite(pin, LOW); } // PARA CONTROLARA EL DDS
 #define salto        A1              // incremento del encoder
 #define P_CW         12              // relay de trasmision.  
-#define banda1       A1              // cambia de banda
+#define banda1        1              // cambia de banda
 
 Rotary r = Rotary(2, 3);             // pins del rotary encoder
 LiquidCrystal_I2C lcd(0x27,20,4);    //asigna la direccion y el tipo de lcd para 20x4                   
@@ -110,22 +110,24 @@ void setup() {
   lcd.setCursor(1, 0);
   lcd.backlight();
   lcd.print("LU5HCB DDS VFO");
-    delay (500);
+    delay (1000);
   lcd.setCursor(1, 0);
   lcd.print("              "); 
-  lcd.setCursor(4, 4);
-  lcd.print("    LU5HCB DDS    ");
+  lcd.setCursor(1, 0);
+  lcd.print("LU5HCB DDS    ");
+  delay (1000);
+ // lcd.print("                    ");
   lcd.setCursor(hertzPosition, 1);
   lcd.print(hertz);
-   
+  lcd.setCursor(11,0);
+  lcd.print("       "); 
  cambiobanda();
     delay(500);
  cambiobanda();
     delay(500);
  cambiobanda();
     delay(500);
-  lcd.setCursor(6, 1);
-  lcd.print("        ");
+
  s_meter();
 }
 

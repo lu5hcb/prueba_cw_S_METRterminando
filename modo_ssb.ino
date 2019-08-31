@@ -3,7 +3,7 @@
   {
    
       txssb = digitalRead(tx);           //señal de que hay tx en el equipo
- if (txssb == LOW) {
+ if (txssb == HIGH) {
  /*   else{ */       digitalWrite(RELAY, HIGH); 
             lcd.setCursor(0, 3);
             lcd.print("TXs");
