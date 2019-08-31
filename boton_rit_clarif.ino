@@ -4,7 +4,7 @@ void ritcla(void){
  if (clarificadori<1){
     delay(100); 
    lcd.setCursor(9,0);
-   lcd.print("     ");
+   lcd.print("  kk   ");
    lcd.setCursor(9,0);
    lcd.print(clarificadori);
  } 
@@ -13,9 +13,11 @@ void ritcla(void){
  if (clarificadori>1){
    lcd.setCursor(9,0);
    delay(99);
-   lcd.print("      ");
+   lcd.print("    ");
    lcd.setCursor(9,0);
    lcd.print(clarificadori*10);
  } 
 
   }
+
+  
