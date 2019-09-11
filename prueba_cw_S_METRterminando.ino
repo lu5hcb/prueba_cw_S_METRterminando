@@ -168,7 +168,7 @@ void loop(){
      cww();                                    //FUNCION DE CW
     }
                   else{    
-     ritcla();
+    // ritcla();
          GoIF = 0;// 0 resta 1 suma
          iffreq=(iffreqrx_ssb-(clarificadori));                     // frecuencia de if rx SSB
          fw=0;
