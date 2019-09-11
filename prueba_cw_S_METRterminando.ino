@@ -33,7 +33,7 @@
 #define pulseHigh(pin) {digitalWrite(pin, HIGH); digitalWrite(pin, LOW); } // PARA CONTROLARA EL DDS
 #define salto        A1              // incremento del encoder
 #define P_CW         12              // relay de trasmision.  
-#define banda1        1              // cambia de banda
+#define banda1        A1              // cambia de banda
 
 Rotary r = Rotary(2, 3);             // pins del rotary encoder
 LiquidCrystal_I2C lcd(0x27,20,4);    //asigna la direccion y el tipo de lcd para 20x4                   
@@ -143,8 +143,8 @@ void loop(){
     }
 
  
-      buttonband = digitalRead(banda1);       // Lee boton cambio de banda
-  if (buttonband == LOW) {
+      buttonband = analogRead(banda1);       // Lee boton cambio de banda
+  if (buttonband < 70 buttonband > 100) {
      cambiobanda();
     }
  
@@ -156,8 +156,8 @@ void loop(){
     }
 
                                            // Lee el boton STEP y cambia los pasos de sintonia (10, 100, 1k , 10k)
-      buttonstate = digitalRead(salto);
-  if (buttonstate == LOW) {
+      buttonstate = analogRead(salto);
+  if (buttonstate < 1 && buttonstate > 50  ) {
     
      setincrement();                           //FUNCION DE MODO DE INCREMENTO
     }
